@@ -2,13 +2,16 @@ import {Composition} from 'remotion';
 import {MainSchema} from './utils/renderDescriptionSchema';
 import {Timeline} from './components/Timeline';
 import {defaultRenderDescription} from './utils/defaultRenderDescription';
+import {getTotalDurationInFrames} from './utils/getTotalDurationInFrames';
 
 export const RemotionRoot: React.FC = () => {
+	const durationInFrames = getTotalDurationInFrames(defaultRenderDescription);
+
 	return (
 		<Composition
 			id="MainComposition"
 			component={Timeline}
-			durationInFrames={150}
+			durationInFrames={durationInFrames}
 			fps={defaultRenderDescription.settings.format.fps}
 			width={defaultRenderDescription.settings.format.width}
 			height={defaultRenderDescription.settings.format.height}
