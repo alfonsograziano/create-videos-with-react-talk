@@ -1,18 +1,19 @@
 import {FC} from 'react';
-import {AbsoluteFill} from 'remotion';
+import {Sequence} from 'remotion';
 import {RenderDescription} from '../utils/renderDescriptionSchema';
+import {AudioTrack} from './AudioTrack';
+import {VideoTrack} from './VideoTrack';
 
 export const MyComposition: FC<RenderDescription> = (renderDescription) => {
 	return (
-		<AbsoluteFill
-			style={{
-				justifyContent: 'center',
-				alignItems: 'center',
-				fontSize: 100,
-				backgroundColor: 'white',
-			}}
-		>
-			The current project name is {renderDescription?.settings?.name}
-		</AbsoluteFill>
+		<Sequence name="main-timeline">
+			{renderDescription.timeline.tracks.video.map((videoTrack) => (
+				<VideoTrack {...videoTrack} key={videoTrack.id} />
+			))}
+
+			{renderDescription.timeline.tracks.audio.map((audioTrack) => (
+				<AudioTrack {...audioTrack} key={audioTrack.id} />
+			))}
+		</Sequence>
 	);
 };
