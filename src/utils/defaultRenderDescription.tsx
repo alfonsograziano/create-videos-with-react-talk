@@ -27,13 +27,26 @@ export const defaultRenderDescription: RenderDescription = {
 							id: 'image-asset-0',
 							type: 'image',
 							src: 'https://upload.wikimedia.org/wikipedia/en/c/c7/BattleForBikiniBottom.jpg',
-							startAtFrame: 51,
+							startAtFrame: 50,
 							durationInFrames: 50,
 							style: {
 								position: 'absolute',
 								width: '100%',
 								height: '100%',
 								objectFit: 'cover',
+							},
+						},
+						{
+							id: 'css-asset-0',
+							type: 'css',
+							startAtFrame: 100,
+							durationInFrames: 50,
+							style: {
+								position: 'absolute',
+								width: '100%',
+								height: '100%',
+								background:
+									'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)',
 							},
 						},
 						{
@@ -45,6 +58,23 @@ export const defaultRenderDescription: RenderDescription = {
 							style: {
 								fontSize: '100px',
 								color: 'red',
+							},
+						},
+					],
+				},
+				{
+					id: 'video-track-1',
+					index: 1,
+					assets: [
+						{
+							id: 'title-asset-0',
+							type: 'text',
+							text: 'Hey folks!',
+							startAtFrame: 100,
+							durationInFrames: 50,
+							style: {
+								fontSize: '100px',
+								color: 'white',
 							},
 						},
 					],
@@ -65,7 +95,7 @@ export const defaultRenderDescription: RenderDescription = {
 						{
 							id: 'audio-asset-1',
 							src: 'https://file-examples.com/storage/fe1e98be1065198f8a74ddc/2017/11/file_example_MP3_700KB.mp3',
-							startAtFrame: 61,
+							startAtFrame: 60,
 							durationInFrames: 50,
 							volume: 0.5,
 						},

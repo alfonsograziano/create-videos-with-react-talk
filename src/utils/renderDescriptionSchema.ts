@@ -5,38 +5,37 @@ const FormatSchema = z.object({
 	height: z.number(),
 	fps: z.number(),
 });
-
-const VideoAssetSchema = z.object({
+const BaseAssetSchema = z.object({
 	id: z.string(),
+	startAtFrame: z.number(),
+	durationInFrames: z.number(),
+	style: z.object({}).optional(),
+});
+
+const VideoAssetSchema = BaseAssetSchema.extend({
 	type: z.literal('video'),
 	src: z.string(),
-	startAtFrame: z.number(),
-	durationInFrames: z.number(),
-	style: z.object({}).optional(),
 });
 
-const ImageAssetSchema = z.object({
-	id: z.string(),
+const ImageAssetSchema = BaseAssetSchema.extend({
 	type: z.literal('image'),
 	src: z.string(),
-	startAtFrame: z.number(),
-	durationInFrames: z.number(),
-	style: z.object({}).optional(),
 });
 
-const TextAssetSchema = z.object({
-	id: z.string(),
+const TextAssetSchema = BaseAssetSchema.extend({
 	type: z.literal('text'),
 	text: z.string(),
-	startAtFrame: z.number(),
-	durationInFrames: z.number(),
-	style: z.object({}).optional(),
+});
+
+const CSSAssetSchema = BaseAssetSchema.extend({
+	type: z.literal('css'),
 });
 
 const AssetSchema = z.union([
 	VideoAssetSchema,
 	TextAssetSchema,
 	ImageAssetSchema,
+	CSSAssetSchema,
 ]);
 
 const AudioAssetSchema = z.object({
@@ -84,3 +83,4 @@ export type VideoTrackRenderDescription = z.infer<typeof VideoTrackSchema>;
 
 export type TextAssetSchemaRenderDescription = z.infer<typeof TextAssetSchema>;
 export type AssetSchemaRenderDescription = z.infer<typeof AssetSchema>;
+export type CSSAssetSchemaRenderDescription = z.infer<typeof CSSAssetSchema>;
