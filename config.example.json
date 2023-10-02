@@ -1,0 +1,72 @@
+{
+	"settings": {
+		"name": "My first project",
+		"format": {
+			"width": "900px",
+			"height": "1200px",
+			"fps": 30
+		}
+	},
+	"timeline": {
+		"tracks": {
+			"video": [
+				{
+					"id": "vid-2",
+					"index": 1,
+					"assets": [
+						{
+							"type": "title",
+							"titleType": "HUGE_TITLE_2",
+							"text": "Title huuuuuge 2",
+							"start": 0,
+							"duration": 10,
+							"effects": [],
+							"properties": {}
+						}
+					]
+				},
+				{
+					"id": "vid-1",
+					"index": 0,
+					"assets": [
+						{
+							"type": "video",
+							"src": "https://assets.mywebsite.com/video1.mp4",
+							"start": 0,
+							"duration": 10,
+							"style": {},
+							"effects": []
+						},
+						{
+							"type": "image",
+							"src": "https://assets.mywebsite.com/image1.jpg",
+							"start": 11,
+							"duration": 10,
+							"style": {},
+							"effects": []
+						},
+						{
+							"type": "title",
+							"titleType": "HUGE_TITLE_1",
+							"text": "Title huuuuuge 1",
+							"start": 21,
+							"duration": 5,
+							"style": {},
+							"effects": []
+						}
+					]
+				}
+			],
+			"audio": [
+				{
+					"src": "https://assets.mywebsite.com/audio1.mp3",
+					"start": 0,
+					"duration": 10,
+					"volume": 0.5,
+					"effects": []
+				}
+			],
+			"subtitles": []
+		}
+	}
+}
