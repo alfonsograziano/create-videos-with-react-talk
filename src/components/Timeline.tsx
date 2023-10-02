@@ -4,7 +4,7 @@ import {RenderDescription} from '../utils/renderDescriptionSchema';
 import {AudioTrack} from './AudioTrack';
 import {VideoTrack} from './VideoTrack';
 
-export const MyComposition: FC<RenderDescription> = (renderDescription) => {
+export const Timeline: FC<RenderDescription> = (renderDescription) => {
 	return (
 		<Sequence name="main-timeline">
 			{renderDescription.timeline.tracks.video.map((videoTrack) => (

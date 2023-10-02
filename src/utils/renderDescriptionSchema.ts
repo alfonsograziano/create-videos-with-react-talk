@@ -12,6 +12,16 @@ const VideoAssetSchema = z.object({
 	src: z.string(),
 	startAtFrame: z.number(),
 	durationInFrames: z.number(),
+	style: z.object({}).optional(),
+});
+
+const ImageAssetSchema = z.object({
+	id: z.string(),
+	type: z.literal('image'),
+	src: z.string(),
+	startAtFrame: z.number(),
+	durationInFrames: z.number(),
+	style: z.object({}).optional(),
 });
 
 const TextAssetSchema = z.object({
@@ -20,10 +30,14 @@ const TextAssetSchema = z.object({
 	text: z.string(),
 	startAtFrame: z.number(),
 	durationInFrames: z.number(),
-	style: z.object({}),
+	style: z.object({}).optional(),
 });
 
-const AssetSchema = z.union([VideoAssetSchema, TextAssetSchema]);
+const AssetSchema = z.union([
+	VideoAssetSchema,
+	TextAssetSchema,
+	ImageAssetSchema,
+]);
 
 const AudioAssetSchema = z.object({
 	id: z.string(),
