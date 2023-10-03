@@ -1,6 +1,14 @@
 import {FC, ComponentProps} from 'react';
 import {Video as RemotionVideo} from 'remotion';
+import {useDynamicStyle} from '../../hooks/useDynamicStyle';
 
-export const Video: FC<ComponentProps<typeof RemotionVideo>> = (props) => {
-	return <RemotionVideo {...props} />;
+type VideoProps = ComponentProps<typeof RemotionVideo> & {
+	dynamicStyle?: any;
+};
+
+export const Video: FC<VideoProps> = ({dynamicStyle, ...props}) => {
+	const currentFrameStyle = useDynamicStyle(dynamicStyle);
+	return (
+		<RemotionVideo {...props} style={{...props.style, ...currentFrameStyle}} />
+	);
 };

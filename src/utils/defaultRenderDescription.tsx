@@ -22,6 +22,12 @@ export const defaultRenderDescription: RenderDescription = {
 							src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
 							startAtFrame: 0,
 							durationInFrames: 50,
+							dynamicStyle: {
+								scale: [
+									[0, 50],
+									[1, 2],
+								],
+							},
 						},
 						{
 							id: 'image-asset-0',
@@ -34,6 +40,12 @@ export const defaultRenderDescription: RenderDescription = {
 								width: '100%',
 								height: '100%',
 								objectFit: 'cover',
+							},
+							dynamicStyle: {
+								scale: [
+									[0, 50],
+									[1, 2],
+								],
 							},
 						},
 						{
@@ -53,17 +65,7 @@ export const defaultRenderDescription: RenderDescription = {
 									[0, 50],
 									[0, 1],
 								],
-							},
-						},
-						{
-							id: 'title-asset-0',
-							type: 'text',
-							text: 'Hey folks!',
-							startAtFrame: 0,
-							durationInFrames: 50,
-							style: {
-								fontSize: '100px',
-								color: 'red',
+								marginLeft: [[0, 50], [0, 100], 'px'],
 							},
 						},
 					],
@@ -81,6 +83,12 @@ export const defaultRenderDescription: RenderDescription = {
 							style: {
 								fontSize: '100px',
 								color: 'white',
+							},
+							dynamicStyle: {
+								color: [
+									[0, 50],
+									['white', 'red'],
+								],
 							},
 						},
 					],

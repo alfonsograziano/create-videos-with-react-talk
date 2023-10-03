@@ -1,5 +1,4 @@
 /* eslint-disable @remotion/volume-callback */
-// eslint-disable-next-line no-warning-comments
 // TODO: Remove this eslint-disable once volume prop is fixed
 import {FC} from 'react';
 

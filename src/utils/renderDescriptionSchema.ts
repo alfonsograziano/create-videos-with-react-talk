@@ -10,7 +10,7 @@ const BaseAssetSchema = z.object({
 	startAtFrame: z.number(),
 	durationInFrames: z.number(),
 	style: z.object({}).optional(),
-	dynamicStyle: z.object({}).optional(),
+	dynamicStyle: z.object({}).optional(), // TODO: Improve this type
 });
 
 const VideoAssetSchema = BaseAssetSchema.extend({

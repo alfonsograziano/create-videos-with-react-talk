@@ -1,6 +1,14 @@
 import {FC} from 'react';
 import {TextAssetSchemaRenderDescription} from '../../utils/renderDescriptionSchema';
+import {useDynamicStyle} from '../../hooks/useDynamicStyle';
 
-export const Text: FC<TextAssetSchemaRenderDescription> = (props) => {
-	return <span style={props.style}>{props.text}</span>;
+type TextProps = TextAssetSchemaRenderDescription & {
+	dynamicStyle?: any;
+};
+
+export const Text: FC<TextProps> = ({dynamicStyle, ...props}) => {
+	const currentFrameStyle = useDynamicStyle(dynamicStyle);
+	return (
+		<span style={{...props.style, ...currentFrameStyle}}>{props.text}</span>
+	);
 };

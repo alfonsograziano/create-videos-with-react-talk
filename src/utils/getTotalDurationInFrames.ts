@@ -26,7 +26,6 @@ export const getTotalDurationInFrames = (rd: RenderDescription) => {
 		});
 	});
 
-	// eslint-disable-next-line no-warning-comments
 	// TODO: Implement the same for subtitles
 	// If you're not as lazy as me, feel free to open a PR
 
