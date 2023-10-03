@@ -59,11 +59,17 @@ const AudioTrackSchema = z.object({
 	assets: z.array(AudioAssetSchema),
 });
 
+const SubtitlesTrackSchema = z.object({
+	id: z.string(),
+	index: z.number(),
+	assets: z.array(z.object({})),
+});
+
 const TimelineSchema = z.object({
 	tracks: z.object({
 		video: z.array(VideoTrackSchema),
 		audio: z.array(AudioTrackSchema),
-		subtitles: z.array(z.object({}).nonstrict()),
+		subtitles: z.array(SubtitlesTrackSchema),
 	}),
 });
 
@@ -81,6 +87,9 @@ export type RenderDescription = z.infer<typeof MainSchema>;
 
 export type AudioTrackRenderDescription = z.infer<typeof AudioTrackSchema>;
 export type VideoTrackRenderDescription = z.infer<typeof VideoTrackSchema>;
+export type SubtitleTrackRenderDescription = z.infer<
+	typeof SubtitlesTrackSchema
+>;
 
 export type TextAssetSchemaRenderDescription = z.infer<typeof TextAssetSchema>;
 export type AssetSchemaRenderDescription = z.infer<typeof AssetSchema>;
