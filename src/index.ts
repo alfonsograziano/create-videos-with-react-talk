@@ -3,5 +3,6 @@
 
 import {registerRoot} from 'remotion';
 import {RemotionRoot} from './Root';
+import './App.css';
 
 registerRoot(RemotionRoot);
