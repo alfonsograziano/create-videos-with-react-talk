@@ -28,7 +28,7 @@ export const defaultRenderDescription: RenderDescription = {
 							type: 'video',
 							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/video1.mp4',
 							startAtFrame: 0,
-							durationInFrames: 20 * FPS,
+							durationInFrames: 23 * FPS,
 							startFrom: 2 * FPS,
 						},
 					],
@@ -42,7 +42,7 @@ export const defaultRenderDescription: RenderDescription = {
 							type: 'image',
 							src: config.profilePhoto,
 							startAtFrame: 0,
-							durationInFrames: 20 * FPS,
+							durationInFrames: 6 * FPS,
 							style: {
 								width: '650px',
 								height: '650px',
@@ -68,7 +68,7 @@ export const defaultRenderDescription: RenderDescription = {
 							type: 'text',
 							text: 'Happy Birthday, ' + config.name + '!',
 							startAtFrame: 3 * FPS,
-							durationInFrames: 17 * FPS,
+							durationInFrames: 3 * FPS,
 							style: {
 								fontWeight: 'bold',
 								color: 'white',
@@ -80,6 +80,83 @@ export const defaultRenderDescription: RenderDescription = {
 							},
 							dynamicStyle: {
 								fontSize: [[0, 50, 51], [0, 130, 130], 'px'],
+							},
+						},
+					],
+				},
+				{
+					id: 'images-slideshow-track-1',
+					index: 1,
+					assets: [
+						{
+							id: 'happy b-day',
+							type: 'image',
+							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/photo_1.jpg',
+							startAtFrame: 6 * FPS,
+							durationInFrames: 3 * FPS,
+							dynamicStyle: {
+								scale: [[0, 90], [1, 1.3], ''],
+							},
+						},
+						{
+							id: 'happy b-day',
+							type: 'image',
+							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/photo2.jpeg',
+							startAtFrame: 9 * FPS,
+							durationInFrames: 3 * FPS,
+
+							dynamicStyle: {
+								scale: [[0, 90], [1.4, 1], ''],
+							},
+						},
+						{
+							id: 'happy b-day',
+							type: 'image',
+							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/photo_3.jpeg',
+							startAtFrame: 12 * FPS,
+							durationInFrames: 3 * FPS,
+							style: {
+								scale: '1.5',
+							},
+							dynamicStyle: {
+								rotate: [[0, 90], [0, 10], 'deg'],
+							},
+						},
+						{
+							id: 'happy b-day',
+							type: 'text',
+							text: 'Thanks for being with us',
+							startAtFrame: 15 * FPS,
+							durationInFrames: 8 * FPS,
+							style: {
+								fontWeight: 'bold',
+								color: 'white',
+								display: 'block',
+								marginLeft: 'auto',
+								marginRight: 'auto',
+								marginTop: 'auto',
+								marginBottom: 'auto',
+								fontFamily: 'Dancing Script',
+							},
+							dynamicStyle: {
+								fontSize: [[0, 50, 51], [0, 130, 130], 'px'],
+							},
+						},
+						{
+							id: 'happy b-day',
+							type: 'css',
+							startAtFrame: 20 * FPS,
+							durationInFrames: 3 * FPS,
+							style: {
+								backgroundColor: 'black',
+								width: '100%',
+								height: '100%',
+							},
+							dynamicStyle: {
+								opacity: [
+									[0, 50, 51],
+									[0, 1, 1],
+								],
 							},
 						},
 					],
