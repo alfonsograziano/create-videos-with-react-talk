@@ -171,7 +171,7 @@ export const defaultRenderDescription: RenderDescription = {
 							id: 'b-day-song',
 							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/happy_b_day.mp3',
 							startAtFrame: 0,
-							durationInFrames: 62 * FPS,
+							durationInFrames: 24 * FPS,
 							volume: 1,
 						},
 					],
