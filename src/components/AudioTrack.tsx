@@ -16,7 +16,11 @@ export const AudioTrack: FC<AudioTrackRenderDescription> = (track) => {
 					durationInFrames={asset.durationInFrames}
 					name={asset.id}
 				>
-					<Audio src={asset.src} volume={asset.volume} />
+					<Audio
+						src={asset.src}
+						volume={asset.volume}
+						startFrom={asset.startFrom}
+					/>
 				</Sequence>
 			))}
 		</Sequence>

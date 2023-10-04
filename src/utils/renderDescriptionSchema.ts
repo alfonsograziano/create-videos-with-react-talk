@@ -16,6 +16,7 @@ const BaseAssetSchema = z.object({
 const VideoAssetSchema = BaseAssetSchema.extend({
 	type: z.literal('video'),
 	src: z.string(),
+	startFrom: z.number().optional(),
 });
 
 const ImageAssetSchema = BaseAssetSchema.extend({
@@ -44,6 +45,7 @@ const AudioAssetSchema = z.object({
 	src: z.string(),
 	startAtFrame: z.number(),
 	durationInFrames: z.number(),
+	startFrom: z.number().optional(),
 	volume: z.number(),
 });
 

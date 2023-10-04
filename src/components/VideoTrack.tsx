@@ -19,7 +19,19 @@ export const VideoTrack: FC<VideoTrackRenderDescription> = (track) => {
 						durationInFrames={asset.durationInFrames}
 						name={asset.id}
 					>
-						{asset.type === 'video' && <Video src={asset.src} />}
+						{asset.type === 'video' && (
+							<Video
+								// The video in the VideoTrack is muted by default
+								// Since we manage the audio in the audio track
+								// If we want the audio and video to stay in sync
+								// We need to do it manually in the render description
+								// This is done only for demo purposes to better show the difference
+								// Between audio and video tracks
+								muted
+								src={asset.src}
+								startFrom={asset.startFrom}
+							/>
+						)}
 						{asset.type === 'text' && <Text {...asset} />}
 						{asset.type === 'image' && <Image {...asset} />}
 						{asset.type === 'css' && <CSSContainer {...asset} />}

@@ -29,6 +29,7 @@ export const defaultRenderDescription: RenderDescription = {
 							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/video1.mp4',
 							startAtFrame: 0,
 							durationInFrames: 20 * FPS,
+							startFrom: 2 * FPS,
 						},
 					],
 				},
