@@ -26,11 +26,12 @@ export const buildImageSection = (
 	from: number,
 	duration: number,
 	src: string,
-	text: string
+	text: string,
+	imgStyle: any
 ) => {
 	return [
 		{
-			id: src + new Date().getTime(),
+			id: src,
 			type: 'image',
 			src,
 			startAtFrame: from,
@@ -40,10 +41,12 @@ export const buildImageSection = (
 				fontSize: '100px',
 				width: '100%',
 				height: '100%',
+				...imgStyle?.style,
 			},
+			dynamicStyle: imgStyle?.dynamicStyle,
 		},
 		{
-			id: text + new Date().getTime(),
+			id: text,
 			type: 'text',
 			text,
 			startAtFrame: from,
@@ -75,7 +78,7 @@ export const buildBlurredImageSection = (
 ) => {
 	return [
 		{
-			id: src + new Date().getTime(),
+			id: src,
 			type: 'image',
 			src,
 			startAtFrame: from,
@@ -91,7 +94,7 @@ export const buildBlurredImageSection = (
 			},
 		},
 		{
-			id: text + new Date().getTime(),
+			id: text,
 			type: 'text',
 			text,
 			startAtFrame: from,
@@ -124,7 +127,7 @@ export const buildMiddleSection = (
 ) => {
 	return [
 		{
-			id: 'background' + new Date().getTime(),
+			id: 'background',
 			type: 'css',
 			startAtFrame: from,
 			durationInFrames: duration,
@@ -225,25 +228,65 @@ export const defaultRenderDescription: RenderDescription = {
 							3 * FPS,
 							3 * FPS,
 							DEMO_IMG,
-							'👋🏻 Welcome on Board'
+							'👋🏻 Welcome on Board',
+							{
+								style: {
+									width: '120%',
+									height: '120%',
+									position: 'absolute',
+									top: '-150px',
+								},
+								dynamicStyle: {
+									left: [[0, 90], [0, -400], 'px'],
+								},
+							}
 						),
 						...buildImageSection(
 							6 * FPS,
 							3 * FPS,
 							DEMO_IMG_2,
-							'🎲 Introduzione al GameDev'
+							'🎲 Introduzione al GameDev',
+							{
+								style: {
+									width: '120%',
+									height: '120%',
+									position: 'absolute',
+									top: '-150px',
+								},
+								dynamicStyle: {
+									right: [[0, 90], [0, -400], 'px'],
+								},
+							}
 						),
 						...buildImageSection(
 							9 * FPS,
 							3 * FPS,
 							DEMO_IMG,
-							'🎮 Parliamo di Videogiochi'
+							'🎮 Parliamo di Videogiochi',
+							{
+								dynamicStyle: {
+									scale: [[0, 90], [1.3, 1], ''],
+								},
+							}
 						),
 						...buildImageSection(
 							12 * FPS,
 							3 * FPS,
 							DEMO_IMG_2,
-							'📷 Realizziamo Video con React'
+							'📷 Realizziamo Video con React',
+
+							{
+								style: {
+									width: '120%',
+									height: '120%',
+									position: 'absolute',
+									top: '-100px',
+									left: '-100px',
+								},
+								dynamicStyle: {
+									rotate: [[0, 90], [0, 5], 'deg'],
+								},
+							}
 						),
 						...buildMiddleSection(15 * FPS, 2 * FPS, 'Cosa abbiamo dopo? 👀'),
 						...buildBlurredImageSection(
@@ -270,6 +313,31 @@ export const defaultRenderDescription: RenderDescription = {
 							'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/networking.jpeg',
 							'🌐 Networking!'
 						),
+
+						...buildBlurredImageSection(
+							29 * FPS,
+							5 * FPS,
+							'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/grazie.jpeg',
+							'Grazie a tutti 🎉'
+						),
+
+						{
+							id: 'fade-out',
+							type: 'css',
+							startAtFrame: 32 * FPS,
+							durationInFrames: 2 * FPS,
+							style: {
+								backgroundColor: 'black',
+								width: '100%',
+								height: '100%',
+							},
+							dynamicStyle: {
+								opacity: [
+									[0, 60, 61],
+									[0, 1, 1],
+								],
+							},
+						},
 					],
 				},
 			],
@@ -282,7 +350,7 @@ export const defaultRenderDescription: RenderDescription = {
 							id: 'audio',
 							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/music.mp3',
 							startAtFrame: 0,
-							durationInFrames: 29 * FPS,
+							durationInFrames: 33 * FPS,
 							volume: 1,
 						},
 					],
