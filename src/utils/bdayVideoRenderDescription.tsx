@@ -184,6 +184,18 @@ export const defaultRenderDescription: RenderDescription = {
 							},
 						},
 						{
+							id: 'background-img',
+							type: 'image',
+							src: DEMO_IMG,
+							startAtFrame: 0,
+							durationInFrames: 3 * FPS,
+							style: {
+								width: '100%',
+								height: '100%',
+								opacity: 0.5,
+							},
+						},
+						{
 							id: 'test-welcome',
 							type: 'text',
 							text: 'Benvenuti alla',
@@ -206,7 +218,7 @@ export const defaultRenderDescription: RenderDescription = {
 							id: 'main-img',
 							type: 'image',
 							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/devfest.jpg',
-							startAtFrame: Number(FPS),
+							startAtFrame: FPS,
 							durationInFrames: 2 * FPS,
 							style: {
 								width: '700px',
