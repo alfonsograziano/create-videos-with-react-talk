@@ -1,15 +1,161 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import {RenderDescription} from './renderDescriptionSchema';
 
 const FPS = 30;
-const config = {
-	name: 'Spongebob',
-	profilePhoto:
-		'https://create-videos-demo.s3.eu-west-1.amazonaws.com/spongebob.png',
+const DEMO_IMG =
+	'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/demo.jpeg';
+const DEMO_IMG_2 =
+	'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/flutter.jpeg';
+const VIOLET_PRIMARY = '#473694';
+
+/**
+ * Benvenuti alla ...
+ * Welcome on Board
+ * Introduzione al GameDev
+ * Parliamo di Videogiochi
+ * Realizziamo Video con React
+ * Cosa abbiamo dopo? 👀
+ * Flutter Sliver
+ * Shader: Creiamone uno
+ * Live Quiz
+ * Networking!
+ */
+
+export const buildImageSection = (
+	from: number,
+	duration: number,
+	src: string,
+	text: string
+) => {
+	return [
+		{
+			id: src + new Date().getTime(),
+			type: 'image',
+			src,
+			startAtFrame: from,
+			durationInFrames: duration,
+			style: {
+				color: 'white',
+				fontSize: '100px',
+				width: '100%',
+				height: '100%',
+			},
+		},
+		{
+			id: text + new Date().getTime(),
+			type: 'text',
+			text,
+			startAtFrame: from,
+			durationInFrames: duration,
+			style: {
+				backgroundColor: VIOLET_PRIMARY,
+				padding: '20px',
+				paddingLeft: '50px',
+				paddingRight: '50px',
+				color: 'white',
+				fontSize: '70px',
+				fontFamily: 'sans-serif',
+				textAlign: 'center',
+				position: 'absolute',
+				bottom: '100px',
+				left: '100px',
+				borderRadius: '20px',
+				boxShadow: '0px 0px 20px rgba(0,0,0,0.4)',
+			},
+		},
+	];
+};
+
+export const buildBlurredImageSection = (
+	from: number,
+	duration: number,
+	src: string,
+	text: string
+) => {
+	return [
+		{
+			id: src + new Date().getTime(),
+			type: 'image',
+			src,
+			startAtFrame: from,
+			durationInFrames: duration,
+			style: {
+				width: '100%',
+				height: '100%',
+				filter: 'blur(4px)',
+				objectFit: 'cover',
+			},
+			dynamicStyle: {
+				scale: [[0, 90], [1, 1.3], ''],
+			},
+		},
+		{
+			id: text + new Date().getTime(),
+			type: 'text',
+			text,
+			startAtFrame: from,
+			durationInFrames: duration,
+			style: {
+				backgroundColor: VIOLET_PRIMARY,
+				padding: '20px',
+				minWidth: '1300px',
+				paddingLeft: '50px',
+				paddingRight: '50px',
+				color: 'white',
+				fontSize: '90px',
+				fontFamily: 'sans-serif',
+				textAlign: 'center',
+				position: 'absolute',
+				top: '50%',
+				left: '50%',
+				transform: 'translate(-50%, -50%)',
+				borderRadius: '20px',
+				boxShadow: '0px 0px 20px rgba(0,0,0,0.4)',
+			},
+		},
+	];
+};
+
+export const buildMiddleSection = (
+	from: number,
+	duration: number,
+	text: string
+) => {
+	return [
+		{
+			id: 'background' + new Date().getTime(),
+			type: 'css',
+			startAtFrame: from,
+			durationInFrames: duration,
+			style: {
+				backgroundColor: VIOLET_PRIMARY,
+				width: '100%',
+				height: '100%',
+			},
+		},
+		{
+			id: 'test-welcome',
+			type: 'text',
+			text,
+			startAtFrame: from,
+			durationInFrames: duration,
+			style: {
+				color: 'white',
+				fontSize: '100px',
+				fontFamily: 'sans-serif',
+				width: '100%',
+				textAlign: 'center',
+				position: 'absolute',
+				top: '450px',
+			},
+		},
+	];
 };
 
 export const defaultRenderDescription: RenderDescription = {
 	settings: {
-		name: 'Project 1',
+		name: 'DevFest Napoli',
 		format: {
 			width: 1920,
 			height: 1080,
@@ -24,141 +170,106 @@ export const defaultRenderDescription: RenderDescription = {
 					index: 0,
 					assets: [
 						{
-							id: 'video-asset-0',
-							type: 'video',
-							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/video1.mp4',
-							startAtFrame: 0,
-							durationInFrames: 23 * FPS,
-							startFrom: 2 * FPS,
-						},
-					],
-				},
-				{
-					id: 'video-track-1',
-					index: 1,
-					assets: [
-						{
-							id: 'spongebob-photo',
-							type: 'image',
-							src: config.profilePhoto,
-							startAtFrame: 0,
-							durationInFrames: 6 * FPS,
-							style: {
-								width: '650px',
-								height: '650px',
-								display: 'block',
-								marginLeft: 'auto',
-								marginRight: 'auto',
-								borderRadius: '50%',
-								border: '20px solid red',
-								boxShadow: '0px 0px 50px -9px rgba(0,0,0,0.4)',
-							},
-							dynamicStyle: {
-								marginTop: [[0, 100, 101], [1500, 100, 100], 'px'],
-							},
-						},
-					],
-				},
-				{
-					id: 'text-track-1',
-					index: 1,
-					assets: [
-						{
-							id: 'happy b-day',
-							type: 'text',
-							text: 'Happy Birthday, ' + config.name + '!',
-							startAtFrame: 3 * FPS,
-							durationInFrames: 3 * FPS,
-							style: {
-								fontWeight: 'bold',
-								color: 'white',
-								display: 'block',
-								marginLeft: 'auto',
-								marginRight: 'auto',
-								marginTop: '800px',
-								fontFamily: 'Dancing Script',
-							},
-							dynamicStyle: {
-								fontSize: [[0, 50, 51], [0, 130, 130], 'px'],
-							},
-						},
-					],
-				},
-				{
-					id: 'images-slideshow-track-1',
-					index: 1,
-					assets: [
-						{
-							id: 'happy b-day',
-							type: 'image',
-							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/photo_1.jpg',
-							startAtFrame: 6 * FPS,
-							durationInFrames: 3 * FPS,
-							dynamicStyle: {
-								scale: [[0, 90], [1, 1.3], ''],
-							},
-						},
-						{
-							id: 'happy b-day',
-							type: 'image',
-							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/photo2.jpeg',
-							startAtFrame: 9 * FPS,
-							durationInFrames: 3 * FPS,
-
-							dynamicStyle: {
-								scale: [[0, 90], [1.4, 1], ''],
-							},
-						},
-						{
-							id: 'happy b-day',
-							type: 'image',
-							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/photo_3.jpeg',
-							startAtFrame: 12 * FPS,
-							durationInFrames: 3 * FPS,
-							style: {
-								scale: '1.5',
-							},
-							dynamicStyle: {
-								rotate: [[0, 90], [0, 10], 'deg'],
-							},
-						},
-						{
-							id: 'happy b-day',
-							type: 'text',
-							text: 'Thanks for being with us',
-							startAtFrame: 15 * FPS,
-							durationInFrames: 8 * FPS,
-							style: {
-								fontWeight: 'bold',
-								color: 'white',
-								display: 'block',
-								marginLeft: 'auto',
-								marginRight: 'auto',
-								marginTop: 'auto',
-								marginBottom: 'auto',
-								fontFamily: 'Dancing Script',
-							},
-							dynamicStyle: {
-								fontSize: [[0, 50, 51], [0, 130, 130], 'px'],
-							},
-						},
-						{
-							id: 'happy b-day',
+							id: 'background',
 							type: 'css',
-							startAtFrame: 20 * FPS,
+							startAtFrame: 0,
 							durationInFrames: 3 * FPS,
 							style: {
-								backgroundColor: 'black',
+								backgroundColor: VIOLET_PRIMARY,
 								width: '100%',
 								height: '100%',
 							},
+						},
+						{
+							id: 'test-welcome',
+							type: 'text',
+							text: 'Benvenuti alla',
+							startAtFrame: 0,
+							durationInFrames: 3 * FPS,
+							style: {
+								color: 'white',
+								fontSize: '100px',
+								fontFamily: 'sans-serif',
+								width: '100%',
+								textAlign: 'center',
+								position: 'absolute',
+								top: '100px',
+							},
+							dynamicStyle: {
+								scale: [[0, 30, 31], [1, 1.3, 1.3], ''],
+							},
+						},
+						{
+							id: 'main-img',
+							type: 'image',
+							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/devfest.jpg',
+							startAtFrame: Number(FPS),
+							durationInFrames: 2 * FPS,
+							style: {
+								width: '700px',
+								textAlign: 'center',
+								position: 'absolute',
+								top: '300px',
+								left: '610px',
+								boxShadow: '0px 0px 50px rgba(0,0,0,0.7)',
+							},
 							dynamicStyle: {
 								opacity: [
-									[0, 50, 51],
+									[0, 10, 11],
 									[0, 1, 1],
 								],
 							},
 						},
+						// Welcome on board
+						...buildImageSection(
+							3 * FPS,
+							3 * FPS,
+							DEMO_IMG,
+							'👋🏻 Welcome on Board'
+						),
+						...buildImageSection(
+							6 * FPS,
+							3 * FPS,
+							DEMO_IMG_2,
+							'🎲 Introduzione al GameDev'
+						),
+						...buildImageSection(
+							9 * FPS,
+							3 * FPS,
+							DEMO_IMG,
+							'🎮 Parliamo di Videogiochi'
+						),
+						...buildImageSection(
+							12 * FPS,
+							3 * FPS,
+							DEMO_IMG_2,
+							'📷 Realizziamo Video con React'
+						),
+						...buildMiddleSection(15 * FPS, 2 * FPS, 'Cosa abbiamo dopo? 👀'),
+						...buildBlurredImageSection(
+							17 * FPS,
+							3 * FPS,
+							'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/flutter.jpeg',
+							'📱 Flutter Sliver'
+						),
+						...buildBlurredImageSection(
+							20 * FPS,
+							3 * FPS,
+							'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/shader.jpeg',
+							'🎨 Shader: Creiamone uno'
+						),
+						...buildBlurredImageSection(
+							23 * FPS,
+							3 * FPS,
+							'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/live-quiz.jpg',
+							'❓ Live Quiz'
+						),
+						...buildBlurredImageSection(
+							26 * FPS,
+							3 * FPS,
+							'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/networking.jpeg',
+							'🌐 Networking!'
+						),
 					],
 				},
 			],
@@ -168,10 +279,10 @@ export const defaultRenderDescription: RenderDescription = {
 					index: 0,
 					assets: [
 						{
-							id: 'b-day-song',
-							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/happy_b_day.mp3',
+							id: 'audio',
+							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/music.mp3',
 							startAtFrame: 0,
-							durationInFrames: 24 * FPS,
+							durationInFrames: 29 * FPS,
 							volume: 1,
 						},
 					],
