@@ -275,7 +275,7 @@ export const defaultRenderDescription: RenderDescription = {
 						...buildImageSection(
 							9 * FPS,
 							3 * FPS,
-							DEMO_IMG,
+							'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/3.jpeg',
 							'🎮 Parliamo di Videogiochi',
 							{
 								dynamicStyle: {
