@@ -241,7 +241,7 @@ export const defaultRenderDescription: RenderDescription = {
 						...buildImageSection(
 							3 * FPS,
 							3 * FPS,
-							DEMO_IMG,
+							'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/1.jpeg',
 							'👋🏻 Welcome on Board',
 							{
 								style: {
@@ -258,7 +258,7 @@ export const defaultRenderDescription: RenderDescription = {
 						...buildImageSection(
 							6 * FPS,
 							3 * FPS,
-							DEMO_IMG_2,
+							'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/2.jpeg',
 							'🎲 Introduzione al GameDev',
 							{
 								style: {
@@ -366,6 +366,7 @@ export const defaultRenderDescription: RenderDescription = {
 							startAtFrame: 0,
 							durationInFrames: 33 * FPS,
 							volume: 1,
+							startFrom: FPS,
 						},
 					],
 				},
