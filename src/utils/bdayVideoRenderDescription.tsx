@@ -173,6 +173,19 @@ export const defaultRenderDescription: RenderDescription = {
 					index: 0,
 					assets: [
 						{
+							id: 'background-video',
+							type: 'video',
+							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/video.mp4',
+							startAtFrame: 0,
+							durationInFrames: 3 * FPS,
+							startFrom: FPS,
+							style: {
+								width: '100%',
+								height: '100%',
+								opacity: 0.5,
+							},
+						},
+						{
 							id: 'background',
 							type: 'css',
 							startAtFrame: 0,
@@ -181,18 +194,7 @@ export const defaultRenderDescription: RenderDescription = {
 								backgroundColor: VIOLET_PRIMARY,
 								width: '100%',
 								height: '100%',
-							},
-						},
-						{
-							id: 'background-img',
-							type: 'image',
-							src: DEMO_IMG,
-							startAtFrame: 0,
-							durationInFrames: 3 * FPS,
-							style: {
-								width: '100%',
-								height: '100%',
-								opacity: 0.5,
+								opacity: 0.7,
 							},
 						},
 						{
