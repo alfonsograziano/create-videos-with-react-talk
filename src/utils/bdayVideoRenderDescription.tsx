@@ -286,7 +286,7 @@ export const defaultRenderDescription: RenderDescription = {
 						...buildImageSection(
 							12 * FPS,
 							3 * FPS,
-							DEMO_IMG_2,
+							'https://create-videos-demo.s3.eu-west-1.amazonaws.com/gdg-napoli/4.jpeg',
 							'📷 Realizziamo Video con React',
 
 							{
