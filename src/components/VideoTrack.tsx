@@ -6,6 +6,7 @@ import {Video} from './assetLoader/Video';
 import {Text} from './assetLoader/Text';
 import {Image} from './assetLoader/Image';
 import {CSSContainer} from './assetLoader/CSSContainer';
+import DynamicComponentLoader from './DynamicComponentLoader';
 
 export const VideoTrack: FC<VideoTrackRenderDescription> = (track) => {
 	return (
@@ -35,6 +36,9 @@ export const VideoTrack: FC<VideoTrackRenderDescription> = (track) => {
 						{asset.type === 'text' && <Text {...asset} />}
 						{asset.type === 'image' && <Image {...asset} />}
 						{asset.type === 'css' && <CSSContainer {...asset} />}
+						{asset.type === 'component' && (
+							<DynamicComponentLoader name={asset.name} props={asset.props} />
+						)}
 					</Sequence>
 				);
 			})}
