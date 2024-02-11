@@ -33,11 +33,18 @@ const CSSAssetSchema = BaseAssetSchema.extend({
 	type: z.literal('css'),
 });
 
+const ComponentSchema = BaseAssetSchema.extend({
+	type: z.literal('component'),
+	name: z.string(),
+	props: z.record(z.unknown()), // 'props' is a generic object, without specific validation
+});
+
 const AssetSchema = z.union([
 	VideoAssetSchema,
 	TextAssetSchema,
 	ImageAssetSchema,
 	CSSAssetSchema,
+	ComponentSchema,
 ]);
 
 const AudioAssetSchema = z.object({
