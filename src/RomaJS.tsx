@@ -214,7 +214,7 @@ export const RomaJS: FC = () => {
 					/>
 				</TransitionSeries.Sequence>
 				<TransitionSeries.Transition
-					presentation={slide()}
+					presentation={slide({direction: 'from-top'})}
 					timing={linearTiming({durationInFrames: 10})}
 				/>
 				<TransitionSeries.Sequence durationInFrames={40}>
@@ -228,7 +228,9 @@ export const RomaJS: FC = () => {
 					/>
 				</TransitionSeries.Sequence>
 				<TransitionSeries.Transition
-					presentation={wipe()}
+					presentation={wipe({
+						direction: 'from-right',
+					})}
 					timing={linearTiming({durationInFrames: 10})}
 				/>
 				<TransitionSeries.Sequence durationInFrames={60}>
