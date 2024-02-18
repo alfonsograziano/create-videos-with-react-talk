@@ -31,6 +31,17 @@ export const defaultRenderDescription: RenderDescription = {
 							durationInFrames: 23 * FPS,
 							startFrom: 2 * FPS,
 						},
+						{
+							id: 'component-asset-0',
+							type: 'component',
+							name: 'Countdown.tsx',
+							props: {
+								start: 5,
+								fps: FPS,
+							},
+							startAtFrame: 0,
+							durationInFrames: 23 * FPS,
+						},
 					],
 				},
 				{
@@ -64,7 +75,7 @@ export const defaultRenderDescription: RenderDescription = {
 					index: 1,
 					assets: [
 						{
-							id: 'happy b-day',
+							id: 'happy b-day1',
 							type: 'text',
 							text: 'Happy Birthday, ' + config.name + '!',
 							startAtFrame: 3 * FPS,
@@ -89,7 +100,7 @@ export const defaultRenderDescription: RenderDescription = {
 					index: 1,
 					assets: [
 						{
-							id: 'happy b-day',
+							id: 'happy b-day2',
 							type: 'image',
 							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/photo_1.jpg',
 							startAtFrame: 6 * FPS,
@@ -99,7 +110,7 @@ export const defaultRenderDescription: RenderDescription = {
 							},
 						},
 						{
-							id: 'happy b-day',
+							id: 'happy b-day3',
 							type: 'image',
 							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/photo2.jpeg',
 							startAtFrame: 9 * FPS,
@@ -110,7 +121,7 @@ export const defaultRenderDescription: RenderDescription = {
 							},
 						},
 						{
-							id: 'happy b-day',
+							id: 'happy b-day4',
 							type: 'image',
 							src: 'https://create-videos-demo.s3.eu-west-1.amazonaws.com/photo_3.jpeg',
 							startAtFrame: 12 * FPS,
@@ -123,7 +134,7 @@ export const defaultRenderDescription: RenderDescription = {
 							},
 						},
 						{
-							id: 'happy b-day',
+							id: 'happy b-day5',
 							type: 'text',
 							text: 'Thanks for being with us',
 							startAtFrame: 15 * FPS,
@@ -143,7 +154,7 @@ export const defaultRenderDescription: RenderDescription = {
 							},
 						},
 						{
-							id: 'happy b-day',
+							id: 'happy b-day6',
 							type: 'css',
 							startAtFrame: 20 * FPS,
 							durationInFrames: 3 * FPS,
