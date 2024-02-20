@@ -149,7 +149,6 @@ export const RomaJS: FC = () => {
 	const frame = useCurrentFrame();
 
 	const titleWidth = interpolate(frame, [89, 90, 110, 111], [0, 0, 1200, 1200]);
-	console.log(titleWidth, frame);
 	return (
 		<Sequence name="timeline">
 			<FadeOut />
@@ -209,12 +208,13 @@ export const RomaJS: FC = () => {
 						style={{
 							objectFit: 'cover',
 							width: '100%',
-							objectPosition: '50% 100%',
+							objectPosition: `50% 100%`,
+							transform: `scale(${interpolate(frame, [0, 30], [1, 1.2])})`,
 						}}
 					/>
 				</TransitionSeries.Sequence>
 				<TransitionSeries.Transition
-					presentation={slide({direction: 'from-top'})}
+					presentation={slide({direction: 'from-left'})}
 					timing={linearTiming({durationInFrames: 10})}
 				/>
 				<TransitionSeries.Sequence durationInFrames={40}>
@@ -224,6 +224,7 @@ export const RomaJS: FC = () => {
 							objectFit: 'cover',
 							width: '100%',
 							objectPosition: '50% 20%',
+							transform: `scale(${interpolate(frame, [30, 70], [1.2, 1])})`,
 						}}
 					/>
 				</TransitionSeries.Sequence>
@@ -240,6 +241,7 @@ export const RomaJS: FC = () => {
 							objectFit: 'cover',
 							width: '100%',
 							objectPosition: '50% 10%',
+							transform: `scale(${interpolate(frame, [50, 110], [1, 1.2])})`,
 						}}
 					/>
 				</TransitionSeries.Sequence>
