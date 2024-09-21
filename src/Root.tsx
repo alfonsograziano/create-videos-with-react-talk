@@ -1,7 +1,7 @@
 import {Composition} from 'remotion';
 import {MainSchema} from './utils/renderDescriptionSchema';
 import {Timeline} from './components/Timeline';
-import {defaultRenderDescription} from './utils/bdayVideoRenderDescription';
+import {defaultRenderDescription} from './utils/winTshirtRenderDescription';
 import {getTotalDurationInFrames} from './utils/getTotalDurationInFrames';
 import {RomaJS, settings} from './RomaJS';
 
